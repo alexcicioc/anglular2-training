@@ -15,9 +15,4 @@ import { IEvent } from './shared/event.model';
 
 export class EventThumbnailComponent {
   @Input() event: IEvent;
-
-  getStartTimeClass() {
-    const isEarlyStart = this.event && this.event.time === '8:00 am';
-    return { green: isEarlyStart, bold: isEarlyStart };
-  }
 }
