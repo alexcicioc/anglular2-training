@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './auth.service';
+import { AuthenticationService } from '../api/services/authentication.service';
+import { Authentication } from '../api/models/authentication';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,17 +12,19 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent {
-  username: string;
+  authentication: Authentication;
+  email: string;
   password: string;
   mouseOverLogin: boolean;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthenticationService, private router: Router) {
 
   }
 
   login(formValues) {
-    this.authService.loginUser(formValues.userName, formValues.password);
-    this.router.navigate(['']);
+    this.authentication = { ...formValues };
+    console.log(this.authService.loginStudent(this.authentication));
+    // this.router.navigate(['']);
   }
 
   cancel() {
