@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { userRoutes } from './user.routes';
 import { ProfileComponent } from './profile.component';
 import { LoginComponent } from './login.component';
+import { RegisterComponent } from './register.component';
 import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
@@ -16,7 +17,8 @@ import { AuthGuardService } from './auth-guard.service';
   ],
   declarations: [
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   providers: [
     AuthGuardService

@@ -1,0 +1,63 @@
+<h1>Registration</h1>
+<hr>
+<form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)" autocomplete="off" novalidate>
+  <div class="col-md-4">
+
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <em *ngIf="registerForm.controls.firstName?.invalid && 
+            (registerForm.controls.firstName?.touched || mouseOverForm)">Required</em>
+      <input (ngModel)="firstName" required name="firstName" id="firstName" type="text" class="form-control"
+        placeholder="First Name..." />
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <em *ngIf="registerForm.controls.lastName?.invalid && 
+            (registerForm.controls.lastName?.touched || mouseOverForm)">Required</em>
+      <input (ngModel)="lastName" required name="lastName" id="lastName" type="lastName" class="form-control"
+        placeholder="Last Name..." />
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <em *ngIf="registerForm.controls.email?.invalid && 
+        (registerForm.controls.email?.touched || mouseOverForm)">Required</em>
+      <input (ngModel)="email" required name="email" id="email" type="text" class="form-control"
+        placeholder="name@example.com" />
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <em *ngIf="registerForm.controls.password?.invalid && 
+        (registerForm.controls.password?.touched || mouseOverForm)">Required</em>
+      <input (ngModel)="password" required name="password" id="password" type="password" class="form-control"
+        placeholder="Password..." />
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+      <div class="form-group">
+          <label for="phone">Phone Number:</label>
+          <em *ngIf="registerForm.controls.phone?.invalid && 
+            (registerForm.controls.phone?.touched || mouseOverForm)">Required</em>
+          <input (ngModel)="phone" required name="phone" id="phone" type="text" class="form-control"
+            placeholder="0755 555 555..." />
+        </div>
+    <div class="form-group">
+      <label for="currentOccupation">Current Occupation:</label>
+      <input (ngModel)="currentOccupation" required name="currentOccupation" id="currentOccupation" type="text"
+        class="form-control" placeholder="Software Developer" />
+    </div>
+    <div class="form-group">
+      <input (ngModel)="availableForHire" required name="availableForHire" id="availableForHire" type="checkbox" /> 
+      <label for="availableForHire">Available for hire</label>
+    </div>
+    
+
+    <div class="form-group">
+        <span (mouseenter)="mouseOverForm=true" (mouseleave)="mouseOverForm=false">
+            <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary">Create Account</button>
+          </span>
+          <button (click)="cancel()" type="button" class="btn btn-default">Cancel</button>
+    </div>
+  </div>
+</form>

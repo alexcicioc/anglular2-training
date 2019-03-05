@@ -2,19 +2,22 @@
   <img [src]="event?.imageUrl" [alt]="event?.title" class="event-image">
 
   <div class="row">
-    <div class="col-md-11">
+    <div class="col-md-9">
       <h2>{{event?.title}} </h2>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-3">
       <div><strong>Date:</strong> {{event?.date}}</div>
     </div>
-    <div class="col-md-6">
-        <strong>Location:</strong><br />
-        {{event?.location}}
-  <button class="btn btn-primary">Signup</button>
+    <div class="col-md-3">
+      <strong>Location:</strong><br />
+      {{event?.location}}
 
+    </div>
+    <div class="col-md-3">
+      <button (click)="handleEventSignup(event.id)" class="btn btn-primary">Signup</button>
+    </div>
   </div>
 </div>
